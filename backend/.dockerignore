@@ -1,0 +1,9 @@
+# Ignore the virtual environment (This is the 1GB culprit)
+venv/
+__pycache__/
+*.pyc
+.git/
+.env
+
+# Ignore weights if they are mounted via volumes (optional, but saves build time)
+weights/

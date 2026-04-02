@@ -1,0 +1,345 @@
+/* --- LAYOUT CONTAINERS --- */
+.container {
+  display: grid;
+  grid-template-columns: 350px 1fr;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* src/features/analysis/AnalysisView.module.css */
+
+.sidebar {
+  width: 320px;
+  /* Force it to fill screen but respect scroll */
+  height: 100vh;
+  min-height: 100vh;
+  
+  /* [CRITICAL FIX] Add huge padding at bottom so the last item isn't cut off */
+  padding: 1.5rem;
+  padding-bottom: 150px; 
+  
+  overflow-y: auto; 
+  background: var(--color-bg-secondary);
+  border-right: 1px solid var(--color-border);
+  
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  flex-shrink: 0;
+  
+  /* Ensure padding doesn't make it wider than 320px */
+  box-sizing: border-box;
+}
+
+.sidebar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 3px;
+}
+
+.sidebar::-webkit-scrollbar-thumb:hover {
+  background: var(--color-primary);
+}
+
+.stage {
+  position: relative;
+  background: radial-gradient(circle at center, #1a202c 0%, #0b0e14 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* --- TYPOGRAPHY --- */
+.header {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--color-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-bottom: var(--border-thin);
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+}
+
+/* --- UPLOAD & ERROR MODULES (You were missing these!) --- */
+.uploadBox {
+  border: 1px dashed var(--color-text-muted);
+  padding: 2rem;
+  text-align: center;
+  cursor: pointer;
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.02);
+  transition: all 0.2s ease;
+}
+
+.uploadBox:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: var(--color-primary);
+}
+
+.errorBox {
+  margin-top: 1rem;
+  padding: 0.75rem;
+  border: 1px solid var(--color-accent);
+  color: var(--color-accent);
+  font-size: 0.8rem;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 0, 85, 0.1);
+}
+
+/* --- METRICS GRID --- */
+.statsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.statCard {
+  background: rgba(255,255,255,0.03);
+  padding: 1rem;
+  border-radius: var(--radius-sm);
+  border-left: 2px solid var(--color-primary);
+}
+
+.statValue {
+  font-family: var(--font-mono);
+  font-size: 1.5rem;
+  font-weight: 700;
+  display: block;
+}
+
+.statLabel {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+}
+
+/* --- INTERACTIVE CONTROLS (Buttons) --- */
+.activeBtn {
+  width: 100%;
+  padding: 0.75rem;
+  background: var(--color-bg-surface-hover);
+  border: 1px solid var(--color-primary);
+  color: var(--color-primary);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  border-radius: var(--radius-sm);
+  transition: all 0.2s ease;
+}
+
+.inactiveBtn {
+  width: 100%;
+  padding: 0.75rem;
+  background: transparent;
+  border: 1px solid var(--border-thin);
+  color: var(--color-text-muted);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  border-radius: var(--radius-sm);
+}
+
+.inactiveBtn:hover {
+  border-color: var(--color-text-main);
+  color: var(--color-text-main);
+}
+
+/* --- LEGEND & INFO --- */
+.infoIcon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--color-text-muted);
+  cursor: help;
+}
+.infoIcon:hover { color: var(--color-primary); }
+
+.legendPopup {
+  position: absolute;
+  left: 100%;
+  margin-left: 10px;
+  top: 0;
+  width: 200px;
+  background: #000;
+  border: 1px solid var(--color-text-muted);
+  padding: 10px;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: #fff;
+  z-index: 999;
+  pointer-events: none;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+}
+
+/* --- LOADING ANIMATION --- */
+.loaderContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  padding: 1rem 0;
+}
+.loaderText {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.75rem;
+}
+.progressBar {
+  width: 100%;
+  height: 2px;
+  background: rgba(255,255,255,0.1);
+  margin-top: 0.5rem;
+}
+.progressFill {
+  height: 100%;
+  background: var(--color-primary);
+  transition: width 0.3s ease;
+}
+/* Add this to AnalysisView.module.css */
+
+.infoTrigger {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  padding: 4px;
+  z-index: 20;
+}
+.infoTrigger:hover {
+  background: rgba(255,255,255,0.1);
+  border-radius: 50%;
+}
+
+/* Ensure legendPopup is on top */
+.legendPopup {
+  position: absolute;
+  left: 100%;
+  margin-left: 10px;
+  top: 0;
+  width: 240px; /* Slightly wider for text */
+  background: #0b0e14; /* Darker background */
+  border: 1px solid var(--color-primary); /* Primary border */
+  padding: 12px;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--color-text-main);
+  z-index: 999;
+  box-shadow: 0 4px 30px rgba(0,0,0,0.8);
+  border-radius: var(--radius-sm);
+  line-height: 1.4;
+}
+/* --- IDLE STATE HUD (The God-Level Fix) --- */
+.idleContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  color: var(--color-text-muted);
+  position: relative;
+  overflow: hidden;
+}
+
+/* The Background Grid */
+.gridBackground {
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background-image: 
+    linear-gradient(var(--border-thin) 1px, transparent 1px),
+    linear-gradient(90deg, var(--border-thin) 1px, transparent 1px);
+  background-size: 40px 40px;
+  background-position: center;
+  opacity: 0.1;
+  transform: perspective(500px) rotateX(60deg);
+  animation: gridPan 20s linear infinite;
+  pointer-events: none;
+}
+
+.hudRing {
+  border: 1px dashed var(--color-primary);
+  border-radius: 50%;
+  padding: 3rem;
+  margin-bottom: 2rem;
+  opacity: 0.3;
+  animation: pulseRing 4s ease-in-out infinite;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.hudRing::before {
+  content: '';
+  position: absolute;
+  top: -5px; left: -5px; right: -5px; bottom: -5px;
+  border-radius: 50%;
+  border-top: 2px solid var(--color-primary);
+  border-bottom: 2px solid var(--color-primary);
+  animation: spinSlow 10s linear infinite;
+}
+
+.systemStatus {
+  font-family: var(--font-mono);
+  text-align: center;
+  z-index: 10;
+}
+
+.statusLine {
+  display: block;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.5rem;
+  color: var(--color-primary);
+  opacity: 0.7;
+}
+
+.instructionMain {
+  font-size: 1.2rem;
+  font-weight: 300;
+  letter-spacing: 0.05em;
+  color: var(--color-text-main);
+}
+
+/* Animations */
+@keyframes gridPan {
+  0% { transform: perspective(500px) rotateX(60deg) translateY(0); }
+  100% { transform: perspective(500px) rotateX(60deg) translateY(40px); }
+}
+
+@keyframes pulseRing {
+  0% { opacity: 0.2; transform: scale(0.95); }
+  50% { opacity: 0.5; transform: scale(1.05); }
+  100% { opacity: 0.2; transform: scale(0.95); }
+}
+
+@keyframes spinSlow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}

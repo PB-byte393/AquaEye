@@ -1,0 +1,162 @@
+/* Google Fonts Import */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono:wght@400&display=swap');
+
+/* CSS Variables - Brand Colors */
+:root {
+  --primary-color: #007BFF;
+  --secondary-color: #6C757D;
+  --background-light: #F8F9FA;
+  --background-dark: #212529;
+  --text-dark: #212529;
+  --text-light: #E8E8E8;
+  --border-light: #DEE2E6;
+  --border-dark: #ADB5BD;
+  --error-color: #DC3545;
+}
+
+/* Global Styles */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  font-weight: 300;
+  font-size: 1rem;
+  color: var(--text-dark);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--background-light);
+}
+
+/* Typography */
+h1 {
+  font-size: 4rem;
+  color: var(--text-dark);
+  font-weight: 700;
+  letter-spacing: -0.05em;
+  margin: 0;
+}
+
+h2 {
+  font-size: 1.8rem;
+  color: var(--secondary-color);
+  font-weight: 300;
+  margin-top: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  margin-bottom: 1rem;
+}
+
+h5 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+h6 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+/* Bootstrap Overrides */
+.btn {
+  border-radius: 0.25rem;
+  font-weight: 400;
+  transition: all 0.15s ease-in-out;
+  border: 1px solid transparent;
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+  border-color: #0056b3;
+}
+
+.btn-secondary {
+  background-color: var(--secondary-color);
+  border-color: var(--secondary-color);
+}
+
+.btn-lg {
+  padding: 0.75rem 1.5rem;
+  font-size: 1.125rem;
+}
+
+.btn-danger {
+  background-color: var(--error-color);
+  border-color: var(--error-color);
+}
+
+.card {
+  border-radius: 0.25rem;
+  border: 1px solid var(--border-light);
+  background-color: var(--background-light);
+  box-shadow: none;
+}
+
+.card-body {
+  padding: 1.5rem;
+}
+
+.modal-content {
+  border-radius: 0.25rem;
+  border: 1px solid var(--border-dark);
+  background-color: var(--background-light);
+}
+
+.modal-header {
+  border-bottom: 1px solid var(--border-light);
+  border-radius: 0.25rem 0.25rem 0 0;
+}
+
+.modal-footer {
+  border-top: 1px solid var(--border-light);
+  border-radius: 0 0 0.25rem 0.25rem;
+}
+
+.form-check-input:checked {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+/* Utility Classes */
+.text-muted {
+  color: var(--secondary-color) !important;
+}
+
+.border {
+  border-color: var(--border-light) !important;
+}
+
+/* Monospace Font for Logs */
+.font-mono {
+  font-family: 'JetBrains Mono', 'Courier New', monospace;
+  font-size: 0.9rem;
+  color: var(--text-light);
+}
+
+/* Bokeh Background Styles */
+.bokeh-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: auto;
+}

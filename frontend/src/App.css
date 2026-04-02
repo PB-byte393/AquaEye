@@ -1,0 +1,203 @@
+/* HomePage Dropzone Styles */
+.dropzone {
+  min-height: 250px;
+  width: 80%;
+  max-width: 600px;
+  border: 2px dashed var(--border-dark);
+  border-radius: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--background-light);
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+  margin: 2rem auto;
+}
+
+.dropzone:hover {
+  border-color: var(--primary-color);
+  background-color: #ffffff;
+}
+
+.dropzone.is-dragging {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 1px var(--primary-color);
+  animation: pulse-shadow 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse-shadow {
+  0%, 100% {
+    box-shadow: 0 0 1px var(--primary-color);
+  }
+  50% {
+    box-shadow: 0 0 8px var(--primary-color);
+  }
+}
+
+.dropzone-text {
+  font-size: 1.2rem;
+  color: var(--secondary-color);
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.dropzone-subtext {
+  font-size: 0.9rem;
+  color: var(--secondary-color);
+  opacity: 0.8;
+}
+
+/* AnalysisModal Status Log Styles */
+.status-log {
+  background-color: var(--background-dark);
+  color: var(--text-light);
+  font-family: 'JetBrains Mono', monospace;
+  padding: 1rem;
+  border-radius: 0.25rem;
+  overflow-y: auto;
+  max-height: 300px;
+  min-height: 300px;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.status-log ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.status-log li {
+  margin-bottom: 0.5rem;
+  padding: 0.25rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.status-log li:last-child {
+  border-bottom: none;
+}
+
+.status-log .error {
+  color: var(--error-color);
+  font-weight: 600;
+}
+
+.status-log .success {
+  color: #28a745;
+  font-weight: 600;
+}
+
+/* KPI Card Styles */
+.kpi-card {
+  background-color: var(--background-light);
+  border: 1px solid var(--border-light);
+  border-radius: 0.25rem;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+  transition: transform 0.2s ease-in-out;
+}
+
+.kpi-card:hover {
+  border-color: var(--primary-color);
+}
+
+.kpi-value {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 0.25rem;
+}
+
+.kpi-label {
+  font-size: 0.9rem;
+  color: var(--secondary-color);
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Results Page Overlay Styles */
+.image-container {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+.specimen-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 0.25rem;
+}
+
+.overlay-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: 0.25rem;
+  pointer-events: none;
+}
+
+.overlay-image.show {
+  opacity: 0.7;
+}
+
+/* Analysis Modal Image Container */
+.nano-banana-container {
+  min-height: 300px;
+  background-color: #343a40;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.25rem;
+  color: var(--text-light);
+  font-size: 1.1rem;
+  text-align: center;
+}
+
+.nano-banana-placeholder {
+  padding: 2rem;
+}
+
+.nano-banana-placeholder .icon {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  opacity: 0.7;
+}
+
+/* Utility Classes */
+.text-primary {
+  color: var(--primary-color) !important;
+}
+
+.bg-primary {
+  background-color: var(--primary-color) !important;
+}
+
+.bg-danger {
+  background-color: var(--error-color) !important;
+}
+
+/* Custom Scrollbar for Status Log */
+.status-log::-webkit-scrollbar {
+  width: 6px;
+}
+
+.status-log::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+}
+
+.status-log::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 3px;
+}
+
+.status-log::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
